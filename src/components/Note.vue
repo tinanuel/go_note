@@ -12,10 +12,10 @@
 <script>
 	export default {
 	components: {},
-	props: ['note'],
+	props: ["note"],
 	data: function (){
 	return {}
 	},
-	methods: {}
+	methods: {},
 	}
 </script>

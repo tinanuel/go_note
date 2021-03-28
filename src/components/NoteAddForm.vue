@@ -26,11 +26,12 @@
 		},
 		methods: {
 		addNote: function (){
-		var note = { name: this.newNoteName, content: this.newNoteContent };
+		var date = (new Date()).toLocaleString("pl-Pl");
+		var note = { name: this.newNoteName, content: this.newNoteContent, createdAt: date };
 		this.$emit("on-add-note", note);
 		this.newNoteContent = null;
 		this.newNoteName = null;
-		},
+		}
 		},
 		}
 	</script>	

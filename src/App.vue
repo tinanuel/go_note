@@ -18,8 +18,8 @@
 			</div>
 			<div class="col-12 col-md-7 col-lg-8 bg-white p-0">
 				<div class="cover d-none d-sm-block"></div>
-				<note v-if="currentNote !== null" v-bind:note="currentNote" />
-				<note-add-form v-else v-on:onAddNote="addNote($event)" />
+				<note-add-form v-if="currentNote == null" v-on:onAddNote="addNote($event)" />
+				<note v-else v-bind:note="currentNote"></note>
 			</div>
 		</div>
 	</div>
@@ -57,11 +57,14 @@
 	this.currentNote = note;
 	},
 	deleteNote: function (note){
-	this.notes = this.notes.filter((n) => n !== note);
+	this.notes = this.notes.filter((n) => n != note);
+	if (note == this.currentNote){
+	this.currentNote = null;
+	}
 	},
 	showAddForm: function (){
 	this.currentNote = null;
-	},
+	}
 	},
 	}
 </script>
@@ -74,3 +77,4 @@
 	min-height: 150px;
 	}
 </style>
+
